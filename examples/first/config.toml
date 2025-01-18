@@ -1,0 +1,7 @@
+
+[uvicorn_config.application]
+app = "main:app"
+
+[uvicorn_config.socket_binding]
+host = "localhost"
+port = 6543

@@ -38,6 +38,12 @@ include = [
 application-settings = ">=0.5"
 python = ">=3.10,<4.0"
 
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+uvicorn = ">=0.30"
+
 [tool.poetry.group.testing]
 optional = true
 
