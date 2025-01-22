@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import ssl
-
 from dataclasses import asdict, field
 from typing import Any
 
@@ -141,7 +140,7 @@ class UvicornLoggingConfigSection(ConfigSectionBase):
 
 @attributes_doc
 @dataclass(frozen=True)
-class UvicornImplementationConfigSection(ConfigSectionBase):
+class UvicornImplementationConfigSection(ConfigSectionBase):  # pylint: disable=too-many-instance-attributes
     """ConfigSection for uvicorn, settings related to implementation."""
 
     loop: str = "auto"
@@ -328,7 +327,7 @@ class UvicornTimeoutsConfigSection(ConfigSectionBase):
 
 @attributes_doc
 @dataclass(frozen=True)
-class UvicornConfigSection(ConfigSectionBase):
+class UvicornConfigSection(ConfigSectionBase):  # pylint: disable=too-many-instance-attributes
     """ConfigSection for uvicorn."""
 
     application: UvicornApplicationConfigSection = UvicornApplicationConfigSection()
