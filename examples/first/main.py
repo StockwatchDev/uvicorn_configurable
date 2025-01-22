@@ -1,10 +1,8 @@
 """Main function"""
 
 import uvicorn
-
-from loguru import logger
-
 from config import ExampleConfig
+from loguru import logger
 
 
 async def app(scope, receive, send):  # type: ignore  # pylint: disable=unused-argument
