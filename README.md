@@ -1,4 +1,4 @@
-# uvicorn_configurable - version 0.1.0 #
+# uvicorn_configurable - version develop (to become 0.2.0) #
 
 [![pypi](https://img.shields.io/pypi/v/uvicorn_configurable.svg)](https://pypi.python.org/pypi/uvicorn_configurable)
 [![versions](https://img.shields.io/pypi/pyversions/uvicorn_configurable.svg)](https://github.com/StockwatchDev/uvicorn_configurable)
