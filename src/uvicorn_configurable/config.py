@@ -8,7 +8,6 @@ from dataclasses import asdict, field
 from typing import Any
 
 from application_settings import ConfigSectionBase, attributes_doc, dataclass
-from loguru import logger
 
 
 @attributes_doc
@@ -67,32 +66,18 @@ class UvicornDevelopmentConfigSection(ConfigSectionBase):
     """ConfigSection for uvicorn, settings related to development."""
 
     reload: bool = False
-    """Whether or not to enable auto-reload. Uvicorn supports two versions of auto-reloading behavior enabled by this
-    option. There are important differences between them. Default: False."""
+    """Whether or not to enable auto-reload. uvicorn_configurable currently only supports reload for reload_dirs.
+    Default: False."""
 
     reload_dirs: list[str] = field(default_factory=lambda: [])
     """Specify which directories to watch for python file changes. If an empty list, then by default the whole current
     directory will be watched. Default: []."""
 
-    reload_include: list[str] = field(default_factory=lambda: [])
-    """Specify glob patterns to match files or directories which will be watched. By default (i.e., when an empty list
-    is specified), the following patterns are included: '*.py'. These defaults can be overwritten by including them
-    in --reload-exclude. Default: []."""
-
-    reload_exclude: list[str] = field(default_factory=lambda: [])
-    """Specify a glob pattern to match files or directories which will excluded from watching. By default (i.e., when
-    an empty list is specified), the following patterns are excluded: '.*', '.py[cod]', '.sw.*', '~*'. These defaults
-    can be overwritten by including them in --reload-include. Default: []."""
-
     def as_uvicorn_config_dict(self) -> dict[str, Any]:
-        """Converts UvicornDevelopmnetConfigSection to a dictionary suitable for Uvicorn configuration."""
+        """Converts UvicornDevelopmentConfigSection to a dictionary suitable for Uvicorn configuration."""
         uvicorn_config_dict = asdict(self)
         if not self.reload_dirs:
             uvicorn_config_dict.pop("reload_dirs")
-        if not self.reload_include:
-            uvicorn_config_dict.pop("reload_include")
-        if not self.reload_exclude:
-            uvicorn_config_dict.pop("reload_exclude")
         return uvicorn_config_dict
 
 
@@ -374,5 +359,4 @@ class UvicornConfigSection(ConfigSectionBase):
             | self.resource_limits.as_uvicorn_config_dict()
             | self.timeouts.as_uvicorn_config_dict()
         )
-        logger.trace(f"{uvicorn_config_dict=}")
         return uvicorn_config_dict

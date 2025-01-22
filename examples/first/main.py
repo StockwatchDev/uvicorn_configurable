@@ -2,6 +2,8 @@
 
 import uvicorn
 
+from loguru import logger
+
 from config import ExampleConfig
 
 
@@ -30,6 +32,7 @@ async def app(scope, receive, send):  # type: ignore  # pylint: disable=unused-a
 def main() -> int:
     """Run a simple uvicorn process that is configured with uvicorn_configurable"""
     cfg = ExampleConfig.get().uvicorn_config.as_uvicorn_config_dict()
+    logger.debug(f"{cfg = }")
     uvicorn.run(**cfg)
     return 0
 

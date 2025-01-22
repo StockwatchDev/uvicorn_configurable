@@ -1,4 +1,4 @@
-# uvicorn_configurable - version develop (to become 0.3.0) #
+# uvicorn_configurable - version develop (to become 0.1.0) #
 
 [![pypi](https://img.shields.io/pypi/v/uvicorn_configurable.svg)](https://pypi.python.org/pypi/uvicorn_configurable)
 [![versions](https://img.shields.io/pypi/pyversions/uvicorn_configurable.svg)](https://github.com/StockwatchDev/uvicorn_configurable)
@@ -10,7 +10,7 @@
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Adds an [application_settings](https://github.com/StockwatchDev/application_settings) ConfigSection to
-[uvicorn](https://github.com/encode/uvicorn), an ASGI web server implementation for Python.
+Facilitates file-based configuration for [`uvicorn`](https://github.com/encode/uvicorn), a Python ASGI web server,
+through the use of an [`application_settings`](https://github.com/StockwatchDev/application_settings) ConfigSection.
 
 This project is licensed under the terms of the MIT license.

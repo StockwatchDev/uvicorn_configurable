@@ -43,6 +43,7 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 uvicorn = ">=0.30"
+loguru = ">=0.7"
 
 [tool.poetry.group.testing]
 optional = true

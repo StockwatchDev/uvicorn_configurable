@@ -1,8 +1,7 @@
 # Basic usage #
 
-The `loguru_configurable` package is designed to simplify the configuration and integration of the `loguru` logging
-library with additional features like routing standard logging calls and defining custom logging levels. This guide
-explains how to use `loguru_configurable` in your Python application.
+The `uvicorn_configurable` package is designed to simplify the configuration of the `uvicorn` ASGI web server
+implementation for Python. This guide explains how to use `uvicorn_configurable` in your Python application.
 
 ## Setting Up Configuration
 
@@ -12,12 +11,13 @@ Define a module to load and manage the configuration of your application. For ex
 
 ```python
 from application_settings import ConfigBase, config_filepath_from_cli, dataclass
-from loguru_configurable import LoguruConfigSection
+from uvicorn_configurable import UvicornConfigSection
 
 @dataclass(frozen=True)
 class ExampleConfig(ConfigBase):
     """Config for the application."""
-    loguru_config: LoguruConfigSection = LoguruConfigSection()
+
+    uvicorn: UvicornConfigSection = UvicornConfigSection()
 
 # Load config.
 config_filepath_from_cli(ExampleConfig, load=True)
@@ -27,117 +27,100 @@ This module uses `application_settings` to load the configuration from file.
 
 ### Configuration File
 
-Create a `config.toml` file to configure your logging setup. Here is an example:
+Create a `config.toml` file to configure your `uvicorn` setup. That file should at the very least specify an item `app`
+in a section `[uvicorn.application]`. Here is an example:
 
 ```toml
-[loguru_config]
-do_configure = true
-intercept = true
+[uvicorn.application]
+app = "main:app"
 
-activation = [["", "true"], ["my_module_1", "false"]]
-patcher = "my_module_1.my_patcher"
+[uvicorn.production]
+workers = 4
 
-[[loguru_config.handlers]]
-sink = 'ext://sys.stderr'
-level = 'INFO'
-format = '<green>{time:HH:mm:ss.SSS}</green> | <level>{level: <8}</level> | <level>{message}</level>'
+[uvicorn.http]
+set_default_forwarded_allow_ips = "false"
+forwarded_allow_ips = [ '*' ]
 
-[[loguru_config.handlers]]
-sink = './logs/file-{time}.log'
-level = 'DEBUG'
-format = '{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {name}:{function}:{line} - {message}'
-enqueue = true
-serialize = false
-
-[[loguru_config.levels]]
-name = 'NEW'
-no = 13
-icon = '¤'
-color = ''
-
-[[loguru_config.levels]]
-name = 'OLD'
-no = 31
-
-[loguru_config.extra]
-context = 'default'
+[uvicorn.socket_binding]
+host = "localhost"
+port = 6543
 ```
 
 This file defines:
 
-- Handlers for console and file logging.
-- Custom log levels (`NEW` and `OLD`).
-- Extra context information.
-- Interception of standard logging calls.
+- The ASGI app that will be served;
+- The number of workers that will be started
+- The list of IP Addresses to trust with proxy headers (here: all);
+- The host and port to use for serving.
 
-## Logging in the Application
+## Using a configured uvicorn
 
-### Main Script
+Here's a main script (`__main__.py`) and a supporting module (`main.py`) to demonstrate the server behavior. The
+supporting module shows in the `main` function how the method `as_uvicorn_config_dict()` is used to convert the
+dataclass instance into a dictionary that can be used to configure `uvicorn`.
 
-Here's a main script (`__main__.py`) to demonstrate the logging behavior:
+### `__main__.py`
 
 ```python
-# Ensure configuration is loaded first
+"""Call the main function, which runs a configured uvicorn process.
+"""
+
 import config  # pylint: disable=unused-import  # isort: skip
 
 import sys
-import my_module_1
-import my_module_2
-from loguru import logger
 
-def main() -> None:
-    """Dummy method to demonstrate logging."""
-    logger.error("Hay there.")
+from main import main
 
-    my_module_1.do_logging()
-    my_module_2.do_logging("INFO")
-    my_module_2.do_logging("NEW")
-    my_module_2.do_logging("OLD")
-    my_module_2.do_logging_with_bind("OLD", "not default")
-    logger.debug("Bye...")
+sys.exit(main())
+```
+
+### `main.py`
+
+```python
+"""Main function"""
+
+import uvicorn
+
+from config import ExampleConfig
+
+
+async def app(scope, receive, send):  # type: ignore  # pylint: disable=unused-argument
+    """Dummy app"""
+
+    assert scope["type"] == "http"
+
+    await send(
+        {
+            "type": "http.response.start",
+            "status": 200,
+            "headers": [
+                [b"content-type", b"text/plain"],
+            ],
+        }
+    )
+    await send(
+        {
+            "type": "http.response.body",
+            "body": b"Hello, world!",
+        }
+    )
+
+
+def main() -> int:
+    """Run a simple uvicorn process that is configured with uvicorn_configurable"""
+    cfg = ExampleConfig.get().uvicorn.as_uvicorn_config_dict()
+    uvicorn.run(**cfg)
+    return 0
+
 
 if __name__ == "__main__":
-    sys.exit(main())
-```
-
-### Supporting Modules
-
-#### `my_module_1.py`
-
-```python
-import datetime
-import logging
-import loguru
-
-def my_patcher(record: loguru.Record) -> None:
-    """Adds a UTC timestamp to the log record."""
-    record["extra"].update(utc=datetime.datetime.now(datetime.timezone.utc))
-
-def do_logging() -> None:
-    """Logs a message at the specified level without binding."""
-    loguru.logger.warning("This is a warning, sent to loguru")
-    logging.warning("This is a warning, sent to the standard logger")
-```
-
-#### `my_module_2.py`
-
-```python
-import loguru
-
-def do_logging(level: str) -> None:
-    """Logs a message at the specified level without binding."""
-    loguru.logger.log(level, "This is a log message without bind")
-
-def do_logging_with_bind(level: str, context: str = "default") -> None:
-    """Logs a message with an optional context binding."""
-    loguru.logger.bind(context=context).log(level, "This is a log message with bind")
+    main()
 ```
 
 ### Output Example
 
 Depending on your `config.toml` settings, you will see:
 
-- Logs in the console with the specified format.
-- Logs written to files in the `./logs` directory.
-- Custom log levels (`NEW`, `OLD`) displayed.
-- Standard logging calls routed through `loguru`.
+- Logs in the console stating that one or more workers have been started.
+- A message `Hello world!` in the web browser when opening the configured host and port.
+- Logs in the console what requests have been made and what the response has been.

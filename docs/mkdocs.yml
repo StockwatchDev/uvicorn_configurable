@@ -1,7 +1,7 @@
-site_name: loguru_configurable
-site_description: Wrapper that adds an application_settings ConfigSection to loguru
+site_name: uvicorn_configurable
+site_description: Facilitates file-based configuration for uvicorn through the use of an application_settings ConfigSection.
 strict: true
-site_url: https://stockwatchdev.github.io/loguru_configurable/
+site_url: https://stockwatchdev.github.io/uvicorn_configurable/
 
 theme:
   name: 'material'
@@ -15,8 +15,8 @@ theme:
   #   - announce.dismiss
   #   - navigation.tabs
 
-repo_name: StockwatchDev/loguru_configurable
-repo_url: https://github.com/StockwatchDev/loguru_configurable
+repo_name: StockwatchDev/uvicorn_configurable
+repo_url: https://github.com/StockwatchDev/uvicorn_configurable
 
 markdown_extensions:
 - toc:
