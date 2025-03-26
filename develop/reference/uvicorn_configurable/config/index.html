@@ -1931,6 +1931,7 @@
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -1957,6 +1958,7 @@
 
 
         <p>ConfigSection for uvicorn, settings related to the application to serve.</p>
+
 
 
 
@@ -1995,6 +1997,7 @@
 
         <p>The ASGI application to run, in the format <code>'&lt;module&gt;:&lt;attribute&gt;'</code>. Set to '' if you supply the app instance.
 Default: ''.</p>
+
     </div>
 
 </div>
@@ -2019,6 +2022,7 @@ Default: ''.</p>
     <div class="doc doc-contents ">
 
         <p>Whether or not to treat app as an application factory, i.e. a () -&gt; <ASGI app> callable; default: False.</p>
+
     </div>
 
 </div>
@@ -2039,6 +2043,7 @@ Default: ''.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornApplicationConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -2093,6 +2098,7 @@ Default: ''.</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -2122,6 +2128,7 @@ Default: ''.</p>
 
         <p>Bind socket to this host. Use '0.0.0.0' to make the application available on your local network.
 IPv6 addresses are supported, for example: '::'. Default: '127.0.0.1'.</p>
+
     </div>
 
 </div>
@@ -2146,6 +2153,7 @@ IPv6 addresses are supported, for example: '::'. Default: '127.0.0.1'.</p>
     <div class="doc doc-contents ">
 
         <p>Bind to a socket with this port. Default: 8000</p>
+
     </div>
 
 </div>
@@ -2171,6 +2179,7 @@ IPv6 addresses are supported, for example: '::'. Default: '127.0.0.1'.</p>
 
         <p>Bind to a UNIX domain socket, for example '/tmp/uvicorn.sock'. Useful if you want to run Uvicorn behind a
 reverse proxy. Set to '' if you don't want to use this. Default: ''.</p>
+
     </div>
 
 </div>
@@ -2196,6 +2205,7 @@ reverse proxy. Set to '' if you don't want to use this. Default: ''.</p>
 
         <p>Bind to socket from this file descriptor. Useful if you want to run Uvicorn within a process manager.
 Set to a negative number if you don't want to use this. Default: -1.</p>
+
     </div>
 
 </div>
@@ -2216,6 +2226,7 @@ Set to a negative number if you don't want to use this. Default: -1.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornSocketBindingConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -2274,6 +2285,7 @@ Set to a negative number if you don't want to use this. Default: -1.</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -2303,6 +2315,7 @@ Set to a negative number if you don't want to use this. Default: -1.</p>
 
         <p>Whether or not to enable auto-reload. uvicorn_configurable currently only supports reload for reload_dirs.
 Default: False.</p>
+
     </div>
 
 </div>
@@ -2328,6 +2341,7 @@ Default: False.</p>
 
         <p>Specify which directories to watch for python file changes. If an empty list, then by default the whole current
 directory will be watched. Default: [].</p>
+
     </div>
 
 </div>
@@ -2348,6 +2362,7 @@ directory will be watched. Default: [].</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornDevelopmentConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -2402,6 +2417,7 @@ directory will be watched. Default: [].</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -2431,6 +2447,7 @@ directory will be watched. Default: [].</p>
 
         <p>Use multiple worker processes. Set to 0 to obtain the uvicorn default, which is setting it to the
 $WEB_CONCURRENCY environment variable if available, or 1. Default: 0.</p>
+
     </div>
 
 </div>
@@ -2451,6 +2468,7 @@ $WEB_CONCURRENCY environment variable if available, or 1. Default: 0.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornProductionConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -2503,6 +2521,7 @@ $WEB_CONCURRENCY environment variable if available, or 1. Default: 0.</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -2531,6 +2550,7 @@ $WEB_CONCURRENCY environment variable if available, or 1. Default: 0.</p>
     <div class="doc doc-contents ">
 
         <p>If True, the default LOG_CONFIG of uvicorn is set; if False, then self.log_config is set. Default: True</p>
+
     </div>
 
 </div>
@@ -2559,6 +2579,7 @@ fileConfig(). Set the formatters.default.use_colors and formatters.access.use_co
 auto-detected behavior. If you wish to use a YAML file for your logging config, you will need to include PyYAML as
 a dependency for your project or install uvicorn with the [standard] optional extras. Set to '' in order to set the
 log_config to None. Default: ''.</p>
+
     </div>
 
 </div>
@@ -2583,6 +2604,7 @@ log_config to None. Default: ''.</p>
     <div class="doc doc-contents ">
 
         <p>Sets the log level. Options: 'critical', 'error', 'warning', 'info', 'debug', 'trace'. Default: 'info'.</p>
+
     </div>
 
 </div>
@@ -2607,6 +2629,7 @@ log_config to None. Default: ''.</p>
     <div class="doc doc-contents ">
 
         <p>Whether or not to have an access log, without changing log level. Default: True.</p>
+
     </div>
 
 </div>
@@ -2633,6 +2656,7 @@ log_config to None. Default: ''.</p>
         <p>Enable / disable colorized formatting of the log records. Valid values: -1, 0, 1. A value of -1 means do not
 set, in case this is not set it will be auto-detected. A value of 0 means disable and 1 is enable. This option is
 ignored if the --log-config CLI option is used. Default: -1 (do not set).</p>
+
     </div>
 
 </div>
@@ -2653,6 +2677,7 @@ ignored if the --log-config CLI option is used. Default: -1 (do not set).</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornLoggingConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -2723,6 +2748,7 @@ ignored if the --log-config CLI option is used. Default: -1 (do not set).</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -2752,6 +2778,7 @@ ignored if the --log-config CLI option is used. Default: -1 (do not set).</p>
 
         <p>Set the event loop implementation. The uvloop implementation provides greater performance, but is not compatible
 with Windows or PyPy. Options: 'auto', 'asyncio', 'uvloop'. Default: 'auto'.</p>
+
     </div>
 
 </div>
@@ -2777,6 +2804,7 @@ with Windows or PyPy. Options: 'auto', 'asyncio', 'uvloop'. Default: 'auto'.</p>
 
         <p>Set the HTTP protocol implementation. The httptools implementation provides greater performance, but is not
 compatible with PyPy. Options: 'auto', 'h11', 'httptools'. Default: 'auto'.</p>
+
     </div>
 
 </div>
@@ -2802,6 +2830,7 @@ compatible with PyPy. Options: 'auto', 'h11', 'httptools'. Default: 'auto'.</p>
 
         <p>Sets the WebSockets protocol implementation. Either of the websockets and wsproto packages are supported. Use
 'none' to ignore all websocket requests. Options: 'auto', 'none', 'websockets', 'wsproto'. Default: 'auto'.</p>
+
     </div>
 
 </div>
@@ -2827,6 +2856,7 @@ compatible with PyPy. Options: 'auto', 'h11', 'httptools'. Default: 'auto'.</p>
 
         <p>Sets the WebSockets max message size, in bytes. Please note that this can be used only with the default
 websockets protocol. Default: 16777216.</p>
+
     </div>
 
 </div>
@@ -2852,6 +2882,7 @@ websockets protocol. Default: 16777216.</p>
 
         <p>Sets the maximum length of the WebSocket incoming message queue. Please note that this can be used only with the
 default websockets protocol. Default: 32.</p>
+
     </div>
 
 </div>
@@ -2877,6 +2908,7 @@ default websockets protocol. Default: 32.</p>
 
         <p>Sets the WebSockets ping interval, in seconds. Please note that this can be used only with the default
 websockets protocol. Default: 20.0.</p>
+
     </div>
 
 </div>
@@ -2902,6 +2934,7 @@ websockets protocol. Default: 20.0.</p>
 
         <p>Sets the WebSockets ping timeout, in seconds. Please note that this can be used only with the default websockets
 protocol. Default: 20.0.</p>
+
     </div>
 
 </div>
@@ -2926,6 +2959,7 @@ protocol. Default: 20.0.</p>
     <div class="doc doc-contents ">
 
         <p>Sets the Lifespan protocol implementation. Options: 'auto', 'on', 'off'. Default: 'auto'.</p>
+
     </div>
 
 </div>
@@ -2951,6 +2985,7 @@ protocol. Default: 20.0.</p>
 
         <p>Sets the maximum number of bytes to buffer of an incomplete event. Only available for h11 HTTP protocol
 implementation. Default: '16384' (16 KB).</p>
+
     </div>
 
 </div>
@@ -2971,6 +3006,7 @@ implementation. Default: '16384' (16 KB).</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornImplementationConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -3019,6 +3055,7 @@ implementation. Default: '16384' (16 KB).</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -3050,6 +3087,7 @@ implementation. Default: '16384' (16 KB).</p>
 support, as it is not supported by the WSGI interface. Options: 'auto', 'asgi3', 'asgi2', 'wsgi'. Warning: 
 Uvicorn's native WSGI implementation is deprecated, you should switch to a2wsgi (pip install a2wsgi).
 Default: 'auto'.</p>
+
     </div>
 
 </div>
@@ -3070,6 +3108,7 @@ Default: 'auto'.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornApplicationInterfaceConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -3118,6 +3157,7 @@ Default: 'auto'.</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -3146,6 +3186,7 @@ Default: 'auto'.</p>
     <div class="doc doc-contents ">
 
         <p>Set the ASGI root_path for applications submounted below a given URL path; default: ''.</p>
+
     </div>
 
 </div>
@@ -3171,6 +3212,7 @@ Default: 'auto'.</p>
 
         <p>Whether or not to enable X-Forwarded-Proto, X-Forwarded-For to populate remote address info. Default: True,
 but is restricted to only trusting connecting IPs in the forwarded-allow-ips configuration.</p>
+
     </div>
 
 </div>
@@ -3197,6 +3239,7 @@ but is restricted to only trusting connecting IPs in the forwarded-allow-ips con
         <p>Whether or not to appy the uvicorn default for 'forwarded_allow_ips', which equals the $FORWARDED_ALLOW_IPS
 environment variable if available, or '127.0.0.1'. Default: True. The field 'forwarded_allow_ips' is used only
 if this field is set to False.</p>
+
     </div>
 
 </div>
@@ -3223,6 +3266,7 @@ if this field is set to False.</p>
         <p>Comma separated list of IP Addresses, IP Networks, or literals (e.g. UNIX Socket path) to trust with proxy
 headers. The literal '*' means trust everything. This setting is applied only if 'set_default_forwarded_allow_ips'
 is False.</p>
+
     </div>
 
 </div>
@@ -3247,6 +3291,7 @@ is False.</p>
     <div class="doc doc-contents ">
 
         <p>Whether or not to enable default Server header; default: True.</p>
+
     </div>
 
 </div>
@@ -3272,6 +3317,7 @@ is False.</p>
 
         <p>Whether or not to enable default Date header; default: True. Note: This flag doesn't have effect on the
 websockets implementation.</p>
+
     </div>
 
 </div>
@@ -3292,6 +3338,7 @@ websockets implementation.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornHTTPConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -3349,6 +3396,7 @@ To understand more about the SSL context options, please refer to the Python doc
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -3377,6 +3425,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>Pathlike string that specifies where to find the SSL key file; default: '', which implies not set.</p>
+
     </div>
 
 </div>
@@ -3401,6 +3450,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>The password to decrypt the ssl key; default: '', which implies not set.</p>
+
     </div>
 
 </div>
@@ -3425,6 +3475,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>The SSL certificate file.</p>
+
     </div>
 
 </div>
@@ -3449,6 +3500,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>The SSL version to use; default: ssl.PROTOCOL_TLS_SERVER.</p>
+
     </div>
 
 </div>
@@ -3473,6 +3525,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>Whether client certificate is required; default: ssl.CERT_NONE.</p>
+
     </div>
 
 </div>
@@ -3497,6 +3550,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>The CA certificates file; default: '', which implies not set.</p>
+
     </div>
 
 </div>
@@ -3521,6 +3575,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>The ciphers to use; default: 'TLSv1'.</p>
+
     </div>
 
 </div>
@@ -3541,6 +3596,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
 
         <p>Converts UvicornHTTPSConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -3607,6 +3663,7 @@ To understand more about the SSL context options, please refer to the Python doc
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -3636,6 +3693,7 @@ To understand more about the SSL context options, please refer to the Python doc
 
         <p>Maximum number of concurrent connections or tasks to allow, before issuing HTTP 503 responses. Useful for
 ensuring known memory usage patterns even under over-resourced loads. Default: -1, which implies not set.</p>
+
     </div>
 
 </div>
@@ -3662,6 +3720,7 @@ ensuring known memory usage patterns even under over-resourced loads. Default: -
         <p>Maximum number of requests to service before terminating the process. Useful when running together with a
 process manager, for preventing memory leaks from impacting long-running processes. Default: -1, which implies
 not set.</p>
+
     </div>
 
 </div>
@@ -3686,6 +3745,7 @@ not set.</p>
     <div class="doc doc-contents ">
 
         <p>Maximum number of connections to hold in backlog. Relevant for heavy incoming traffic. Default: 2048.</p>
+
     </div>
 
 </div>
@@ -3706,6 +3766,7 @@ not set.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornResourceLimitsConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -3764,6 +3825,7 @@ not set.</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -3792,6 +3854,7 @@ not set.</p>
     <div class="doc doc-contents ">
 
         <p>Close Keep-Alive connections if no new data is received within this timeout. Default: 5.</p>
+
     </div>
 
 </div>
@@ -3817,6 +3880,7 @@ not set.</p>
 
         <p>Maximum number of seconds to wait for graceful shutdown. After this timeout, the server will start terminating
 requests. Default: -1, which implies not set.</p>
+
     </div>
 
 </div>
@@ -3837,6 +3901,7 @@ requests. Default: -1, which implies not set.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornTimeoutsConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
@@ -3891,6 +3956,7 @@ requests. Default: -1, which implies not set.</p>
 
 
 
+
   <div class="doc doc-children">
 
 
@@ -3915,6 +3981,7 @@ requests. Default: -1, which implies not set.</p>
     <div class="doc doc-contents ">
 
         <p>Converts UvicornConfigSection to a dictionary suitable for Uvicorn configuration.</p>
+
 
             <details class="quote">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
