@@ -2309,6 +2309,7 @@
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
 
 
+
         <p>ConfigSection for uvicorn, settings related to the application to serve.</p>
 
 
@@ -2399,7 +2400,7 @@ Default: ''.</p>
         <p>Converts UvicornApplicationConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
 <span class="normal">25</span>
@@ -2440,6 +2441,7 @@ Default: ''.</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to socket binding.</p>
@@ -2584,7 +2586,7 @@ Set to a negative number if you don't want to use this. Default: -1.</p>
         <p>Converts UvicornSocketBindingConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
 <span class="normal">53</span>
@@ -2629,6 +2631,7 @@ Set to a negative number if you don't want to use this. Default: -1.</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to development.</p>
@@ -2722,7 +2725,7 @@ directory will be watched. Default: [].</p>
         <p>Converts UvicornDevelopmentConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
 <span class="normal">76</span>
@@ -2763,6 +2766,7 @@ directory will be watched. Default: [].</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to production.</p>
@@ -2830,7 +2834,7 @@ $WEB_CONCURRENCY environment variable if available, or 1. Default: 0.</p>
         <p>Converts UvicornProductionConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">92</span>
 <span class="normal">93</span>
@@ -2869,6 +2873,7 @@ $WEB_CONCURRENCY environment variable if available, or 1. Default: 0.</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to logging.</p>
@@ -3041,7 +3046,7 @@ ignored if the --log-config CLI option is used. Default: -1 (do not set).</p>
         <p>Converts UvicornLoggingConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">125</span>
 <span class="normal">126</span>
@@ -3098,6 +3103,7 @@ ignored if the --log-config CLI option is used. Default: -1 (do not set).</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to implementation.</p>
@@ -3372,7 +3378,7 @@ implementation. Default: '16384' (16 KB).</p>
         <p>Converts UvicornImplementationConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">181</span>
 <span class="normal">182</span>
@@ -3407,6 +3413,7 @@ implementation. Default: '16384' (16 KB).</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to application interface.</p>
@@ -3476,7 +3483,7 @@ Default: 'auto'.</p>
         <p>Converts UvicornApplicationInterfaceConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">197</span>
 <span class="normal">198</span>
@@ -3511,6 +3518,7 @@ Default: 'auto'.</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to HTTP.</p>
@@ -3708,7 +3716,7 @@ websockets implementation.</p>
         <p>Converts UvicornHTTPConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">231</span>
 <span class="normal">232</span>
@@ -3751,6 +3759,7 @@ websockets implementation.</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to HTTPS.
@@ -3968,7 +3977,7 @@ To understand more about the SSL context options, please refer to the Python doc
         <p>Converts UvicornHTTPSConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">267</span>
 <span class="normal">268</span>
@@ -4021,6 +4030,7 @@ To understand more about the SSL context options, please refer to the Python doc
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to resource limits.</p>
@@ -4140,7 +4150,7 @@ not set.</p>
         <p>Converts UvicornResourceLimitsConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">298</span>
 <span class="normal">299</span>
@@ -4185,6 +4195,7 @@ not set.</p>
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
+
 
 
         <p>ConfigSection for uvicorn, settings related to timeouts.</p>
@@ -4277,7 +4288,7 @@ requests. Default: -1, which implies not set.</p>
         <p>Converts UvicornTimeoutsConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">320</span>
 <span class="normal">321</span>
@@ -4320,6 +4331,7 @@ requests. Default: -1, which implies not set.</p>
               Bases: <code><span title="application_settings.ConfigSectionBase">ConfigSectionBase</span></code></p>
 
 
+
         <p>ConfigSection for uvicorn.</p>
 
 
@@ -4359,7 +4371,7 @@ requests. Default: -1, which implies not set.</p>
         <p>Converts UvicornConfigSection to a dictionary suitable for Uvicorn configuration.</p>
 
 
-            <details class="quote">
+            <details class="mkdocstrings-source">
               <summary>Source code in <code>src/uvicorn_configurable/config.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">345</span>
 <span class="normal">346</span>
